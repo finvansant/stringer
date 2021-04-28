@@ -26,7 +26,7 @@ data.dtypes
 
 
 # Load clusters CSV
-df_clusters = pd.read_csv('data/tweets_cluster_keywords.csv', index_col=0)
+df_clusters = pd.read_csv('data/2021-04-28-19-34-42-FP_500search.csv', index_col=0)
 
 st.subheader('Explore clusters')
 df_clusters
