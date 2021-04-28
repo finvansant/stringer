@@ -4,7 +4,7 @@ import numpy as np
 
 st.title('Stringer x Thomson Reuters: Surfacing Viral Misinformation')
 
-DATA_URL = ('data/tweets_cluster_output_15000.csv')
+DATA_URL = ('data/2021-04-28-19-34-42-FP_500_streamlistener.csv')
 
 @st.cache
 def load_data(nrows):
