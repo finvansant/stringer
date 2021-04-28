@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+st.image('./images/stringer_logo.png')
 st.title('Stringer x Thomson Reuters: Surfacing Viral Misinformation')
 
 DATA_URL = ('data/2021-04-28-19-34-42-FP_500_streamlistener.csv')
@@ -17,7 +18,7 @@ def load_data(nrows):
 data_load_state = st.text('Loading data...')
 
 # Load 10,000 rows of data into the dataframe.
-data = load_data(150)
+data = load_data(500)
 
 # Notify the reader that the data was successfully loaded.
 data_load_state.text("Done! (using st.cache)")
