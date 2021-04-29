@@ -1,10 +1,12 @@
 ![Stringer](./images/stringer_logo.png)
 
-### identifying clusters based on velocity x novelty x relevance  
+## Surfacing Viral Misinformation
 
-### highlighting drivers of misinformation      
+### - identifying clusters based on velocity x novelty x relevance  
+
+### - highlighting drivers of misinformation      
    
-### understanding key metrics behind social media spread
+### - understanding key metrics behind social media spread
 
 
 
