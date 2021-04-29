@@ -29,7 +29,7 @@ def page_clusters():
     df_clusters = pd.read_csv('data/cluster_keywords.csv', index_col=0)
 
     st.subheader('Explore clusters')
-    df_clusters
+    st.write(df_clusters)
 
     # User selection of cluster
     cluster_choice = st.selectbox(
