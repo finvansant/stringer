@@ -35,7 +35,7 @@ st.write("")
 st.write("")
 st.write("")
 
-DATA_URL = ('data/2021-04-28-19-34-42-FP_500_streamlistener.csv')
+DATA_URL = ('data/cluster_tweets.csv')
 
 @st.cache
 def load_data(nrows):
@@ -53,11 +53,9 @@ data = load_data(500)
 # Notify the reader that the data was successfully loaded.
 data_load_state.text("Done! (using st.cache)")
 
-data.dtypes
-
 
 # Load clusters CSV
-df_clusters = pd.read_csv('data/2021-04-28-19-34-42-FP_500search.csv', index_col=0)
+df_clusters = pd.read_csv('data/cluster_keywords.csv', index_col=0)
 
 st.subheader('Explore clusters')
 df_clusters
@@ -80,10 +78,10 @@ st.write(data2[data2["clusters"] == int(cluster_choice[-1])])
 
 # Create a time series of tweets
 
-"""data_timeindex = data.set_index('created_on')
-data_timeindex = data_timeindex[["tweet_text", "clusters"]]
-data_timeindex
-st.line_chart(data_timeindex)"""
+#data_timeindex = data.set_index('created_on')
+#data_timeindex = data_timeindex[["tweet_text", "clusters"]]
+#data_timeindex
+#st.line_chart(data_timeindex)
 
 # Show full dataframe on user request
 if st.checkbox('Show raw data'):
