@@ -2,11 +2,11 @@
 
 ## Surfacing Viral Misinformation
 
-### - identifying clusters based on velocity x novelty x relevance  
+* **identifying clusters based on velocity x novelty x relevance**  
 
-### - highlighting drivers of misinformation      
+* **highlighting drivers of misinformation**      
    
-### - understanding key metrics behind social media spread
+* **understanding key metrics behind social media spread**
 
 
 
