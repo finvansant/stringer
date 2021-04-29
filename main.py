@@ -1,6 +1,5 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
+
 
 from page_introduction import page_introduction
 from page_clusters import page_clusters
@@ -24,12 +23,3 @@ sidebar_pages = {
 page = st.sidebar.radio("Select:", tuple(sidebar_pages.keys()))
 
 sidebar_pages[page]()
-
-st.image('./images/stringer_logo.png')
-st.title('Surfacing Viral Misinformation')
-
-
-# Spacing
-st.write("")
-st.write("")
-st.write("")
