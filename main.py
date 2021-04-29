@@ -2,8 +2,36 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+from page_introduction import page_introduction
+from page_clusters import page_clusters
+from page_velocity import page_velocity
+from page_team import page_team
+
+# Sidebar
+st.sidebar.image('./images/cornell_tech_logo.png')
+
+sidebar_pages = {
+    "Introduction": page_introduction,
+    "Explore Clusters": page_clusters,
+    "Velocity": page_velocity,
+    "Team": page_team
+}
+
+st.sidebar.title("Navigation")
+
+page = st.sidebar.radio("Select:", tuple(sidebar_pages.keys()))
+
+sidebar_pages[page]()
+
 st.image('./images/stringer_logo.png')
-st.title('Stringer x Thomson Reuters: Surfacing Viral Misinformation')
+st.title('Surfacing Viral Misinformation')
+
+
+
+# Spacing
+st.write("")
+st.write("")
+st.write("")
 
 DATA_URL = ('data/2021-04-28-19-34-42-FP_500_streamlistener.csv')
 
