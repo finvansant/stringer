@@ -12,6 +12,7 @@ def page_clusters():
     def load_data(nrows):
         data = pd.read_csv(DATA_URL, nrows=nrows)
         data['created_on']= pd.to_datetime(data['created_on'])
+        data['clusters'] += 1
         return data
 
 
@@ -28,17 +29,43 @@ def page_clusters():
     # Load clusters CSV
     df_clusters = pd.read_csv('data/cluster_keywords.csv', index_col=0)
 
-    st.subheader('Explore clusters')
+    st.subheader('Explore Clusters')
+    st.write("")
+    st.write("Top keywords for each cluster:")
     st.write(df_clusters)
+    st.write("")
+    st.write("")
+    st.write("Summary statistics for each cluster:")
+
+    # Show statistics about the different clusters (total audience, total number of posts)
+
+    dfsumfollowers = data[["clusters", "user_follower_count"]]
+    dfsumfollowers = dfsumfollowers.groupby(["clusters"], as_index = False).sum()
+    dfsumfollowers = dfsumfollowers.rename(columns={"user_follower_count":"total_followers"})
+
+    dfcountposts = data[["clusters", "user_follower_count"]]
+    dfcountposts = dfcountposts.groupby(["clusters"], as_index = False).count()
+    dfcountposts = dfcountposts.rename(columns={"user_follower_count":"total_number_of_posts"})
+
+    dfsummary = pd.merge(dfsumfollowers, dfcountposts, on="clusters")
+    dfsummary['average_audience'] = round((dfsummary['total_followers'] / dfsummary['total_number_of_posts']))
+    dfsummary = dfsummary.rename(columns={"clusters":"cluster"})
+
+    st.write(dfsummary)
+
+    st.write("")
+    st.write("")
+
+    st.subheader('Explore Tweets')
 
     # User selection of cluster
     cluster_choice = st.selectbox(
-        'Which cluster would you like to explore further?',
-        df_clusters.columns)
+    'Which cluster would you like to explore further?',
+    df_clusters.columns)
 
     st.write('You selected:', cluster_choice)
 
-    st.subheader('Explore tweets')
+
 
     # Reorganize tweet data
     data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
