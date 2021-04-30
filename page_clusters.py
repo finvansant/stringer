@@ -56,6 +56,9 @@ def page_clusters():
     st.write("")
     st.write("")
 
+    st.write('Cluster map visualization:')
+    st.image('./images/cluster_map_visualization.png')
+
     st.subheader('Explore Tweets')
 
     # User selection of cluster
