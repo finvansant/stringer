@@ -49,7 +49,7 @@ def page_clusters():
 
     dfsummary = pd.merge(dfsumfollowers, dfcountposts, on="clusters")
     dfsummary['average_audience'] = round((dfsummary['total_followers'] / dfsummary['total_number_of_posts']))
-    dfsummary = dfsummary.rename(columns={"clusters":"cluster"})
+    dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_followers":"Total Followers", "total_posts":"Total Posts", "average_audience":"Average Audience"})
 
     st.write(dfsummary)
 
@@ -72,9 +72,10 @@ def page_clusters():
 
     # Reorganize tweet data
     data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
+    data2 = data2.rename(columns={"clusters":"Cluster", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
 
     # Filter based on cluster choice input
-    st.write(data2[data2["clusters"] == int(cluster_choice[-1])])
+    st.write(data2[data2["Cluster"] == int(cluster_choice[-1])])
 
 
     # Create a time series of tweets
