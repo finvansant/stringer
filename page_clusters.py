@@ -133,11 +133,11 @@ def page_clusters():
     # FAQ
     st.subheader("FAQ")
     expander = st.beta_expander("What is the source for this data?")
-    expander.write("Answer1")
+    expander.markdown("Data is acquired using the Twitter Search API")
     expander = st.beta_expander("What do the different columns mean?")
-    expander.write("Answer1")    
+    expander.write("For detailed explanations check out the Twitter Search API documentation.")    
     expander = st.beta_expander("Who do I contact for help with this information?")
-    expander.write("Answer1")
+    expander.write("Feel free to reach out to the Stringer Team!")
 
 
     st.write("")
