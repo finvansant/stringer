@@ -68,6 +68,27 @@ def page_clusters():
 
     st.write('You selected:', cluster_choice)
 
+    # Create a time series of tweets
+
+    # ----------------------
+
+    # Load timeseries data
+    df_time = pd.read_csv('data/time_series.csv')
+
+    from datetime import date
+    from datetime import datetime
+    time_cluster = df_time[df_time['cluster'] == int(cluster_choice[-1])-1][['Date','Velocity']]
+
+    min_time = datetime.strptime(min(time_cluster['Date']), '%Y-%m-%d')
+    max_time = datetime.strptime(max(time_cluster['Date']), '%Y-%m-%d')
+
+    timerange = st.slider("Select Time Range:",min_value=min_time, max_value=max_time,value=(min_time, max_time),format="YY-MM-DD")
+
+    c = alt.Chart(time_cluster[(time_cluster['Date']>=timerange[0].strftime('%Y-%m-%d')) & (time_cluster['Date']<=timerange[1].strftime('%Y-%m-%d'))])\
+    .mark_area(color='lightblue',point=True).encode(x='Date',y='Velocity')
+    st.altair_chart(c,use_container_width=True)
+
+    # ----------------------
 
 
     # Reorganize tweet data
