@@ -21,7 +21,7 @@ def page_clusters():
     data_load_state = st.text('Loading data...')
 
     # Load 10,000 rows of data into the dataframe.
-    data = load_data(500)
+    data = load_data(1000)
 
     # Notify the reader that the data was successfully loaded.
     data_load_state.text("Done! (using st.cache)")
@@ -50,7 +50,7 @@ def page_clusters():
 
     dfsummary = pd.merge(dfsumfollowers, dfcountposts, on="clusters")
     dfsummary['average_audience'] = round((dfsummary['total_followers'] / dfsummary['total_number_of_posts']))
-    dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_followers":"Total Followers", "total_posts":"Total Posts", "average_audience":"Average Audience"})
+    dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_followers":"Total Followers", "total_number_of_posts":"Total Posts", "average_audience":"Average Audience"})
 
     st.write(dfsummary)
 
@@ -68,6 +68,14 @@ def page_clusters():
     df_clusters.columns)
 
     st.write('You selected:', cluster_choice)
+
+    # Reorganize tweet data
+    data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
+    data2 = data2.rename(columns={"clusters":"Cluster", "tweet_text":"Tweet Text", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
+
+    # Filter based on cluster choice input
+    st.write(data2[data2["Cluster"] == int(cluster_choice[-1])])
+
 
     # Create a time series of tweets
 
@@ -90,22 +98,6 @@ def page_clusters():
     st.altair_chart(c,use_container_width=True)
 
     # ----------------------
-
-
-    # Reorganize tweet data
-    data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
-    data2 = data2.rename(columns={"clusters":"Cluster", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
-
-    # Filter based on cluster choice input
-    st.write(data2[data2["Cluster"] == int(cluster_choice[-1])])
-
-
-    # Create a time series of tweets
-
-    #data_timeindex = data.set_index('created_on')
-    #data_timeindex = data_timeindex[["tweet_text", "clusters"]]
-    #data_timeindex
-    #st.line_chart(data_timeindex)
 
     # Show full dataframe on user request
     if st.checkbox('Show raw data'):
