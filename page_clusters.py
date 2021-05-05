@@ -29,14 +29,20 @@ def page_clusters():
 
     # Load clusters CSV
     df_clusters = pd.read_csv('data/cluster_keywords.csv', index_col=0)
+    df_clusters.columns=["Cluster "+str(i) for i in range(1, df_clusters.shape[1] + 1)]
 
     st.subheader('Explore Clusters')
+    st.write("")
+    st.write("The table below shows the keywords that best describe each cluster so are a good way to understand the overall topic, and compare the different types of commentary on social media.")
     st.write("")
     st.write("Top keywords for each cluster:")
     st.write(df_clusters)
     st.write("")
+    st.write("To explore further, the table below shows information about the audience that was reached by tweets in each cluster. Click on a column name to sort by that column.")
     st.write("")
     st.write("Summary statistics for each cluster:")
+    st.write("")
+
 
     # Show statistics about the different clusters (total audience, total number of posts)
 
@@ -58,9 +64,14 @@ def page_clusters():
     st.write("")
 
     st.write('Cluster map visualization:')
+    st.write("")
     st.image('./images/cluster_map_visualization.png')
 
     st.subheader('Explore Tweets')
+
+    st.write("")
+    st.write("Go deeper into the cluster by looking at individual tweets, and see how the clusters grew over time using the timeseries chart.")
+    st.write("")
 
     # User selection of cluster
     cluster_choice = st.selectbox(
@@ -73,10 +84,16 @@ def page_clusters():
     data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
     data2 = data2.rename(columns={"clusters":"Cluster", "tweet_text":"Tweet Text", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
 
+    st.write("")
+    st.write("Full tweets within this cluster:")
+
     # Filter based on cluster choice input
     st.write(data2[data2["Cluster"] == int(cluster_choice[-1])])
 
-
+    st.write("")
+    st.write("")
+    st.write("Number of tweets over time:")
+    st.write("")
     # Create a time series of tweets
 
     # ----------------------
@@ -92,13 +109,16 @@ def page_clusters():
     max_time = datetime.strptime(max(time_cluster['Date']), '%Y-%m-%d')
 
     timerange = st.slider("Select Time Range:",min_value=min_time, max_value=max_time,value=(min_time, max_time),format="YY-MM-DD")
-
+    st.write("")
     c = alt.Chart(time_cluster[(time_cluster['Date']>=timerange[0].strftime('%Y-%m-%d')) & (time_cluster['Date']<=timerange[1].strftime('%Y-%m-%d'))])\
     .mark_area(color='lightblue',point=True).encode(x='Date',y='Velocity')
     st.altair_chart(c,use_container_width=True)
-
+    st.write("")
+    st.write("")
     # ----------------------
-
+    st.write("")
+    st.write("Finally, if you'd want to dig deeper into the data, you can see all of the information about a tweet, and the user who posted it, here:")
+    st.write("")
     # Show full dataframe on user request
     if st.checkbox('Show raw data'):
         st.subheader('Raw data')
@@ -109,6 +129,17 @@ def page_clusters():
     st.write("")
     st.write("")
     st.write("")
+
+    # FAQ
+    st.subheader("FAQ")
+    expander = st.beta_expander("What is the source for this data?")
+    expander.write("Answer1")
+    expander = st.beta_expander("What do the different columns mean?")
+    expander.write("Answer1")    
+    expander = st.beta_expander("Who do I contact for help with this information?")
+    expander.write("Answer1")
+
+
     st.write("")
     st.write("")
 
