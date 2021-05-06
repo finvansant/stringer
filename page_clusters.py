@@ -128,6 +128,15 @@ def page_clusters():
     st.write("")
     st.write("")
     st.write("")
+    #FAQ
+    st.subheader("FAQ")
+    expander = st.beta_expander("What is the source for this data?")
+    expander.markdown("Data is acquired using the Twitter Search API")
+    expander = st.beta_expander("What do the different columns mean?")
+    expander.write("For detailed explanations check out the Twitter Search API documentation.")
+    expander = st.beta_expander("Who do I contact for help with this information?")
+    expander.write("Feel free to reach out to the Stringer Team!")
+
     st.write("")
 
     # FAQ
@@ -135,7 +144,7 @@ def page_clusters():
     expander = st.beta_expander("What is the source for this data?")
     expander.markdown("Data is acquired using the Twitter Search API")
     expander = st.beta_expander("What do the different columns mean?")
-    expander.write("For detailed explanations check out the Twitter Search API documentation.")    
+    expander.write("For detailed explanations check out the Twitter Search API documentation.")
     expander = st.beta_expander("Who do I contact for help with this information?")
     expander.write("Feel free to reach out to the Stringer Team!")
 
