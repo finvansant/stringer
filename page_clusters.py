@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import altair as alt
 
 def page_clusters():
 
@@ -57,6 +58,8 @@ def page_clusters():
     st.write("")
 
     st.write('Cluster map visualization:')
+
+
     st.image('./images/cluster_map_visualization.png')
 
     st.subheader('Explore Tweets')
