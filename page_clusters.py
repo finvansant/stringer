@@ -43,6 +43,7 @@ def page_clusters():
     st.write("Summary statistics for each cluster:")
     st.write("")
 
+
     # Show statistics about the different clusters (total audience, total number of posts)
 
     dfsumfollowers = data[["clusters", "user_follower_count"]]
@@ -80,7 +81,6 @@ def page_clusters():
     st.write('You selected:', cluster_choice)
 
     # Reorganize tweet data
-
     data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
     data2 = data2.rename(columns={"clusters":"Cluster", "tweet_text":"Tweet Text", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
 
@@ -94,7 +94,6 @@ def page_clusters():
     st.write("")
     st.write("Number of tweets over time:")
     st.write("")
-
     # Create a time series of tweets
 
     # ----------------------
@@ -139,6 +138,17 @@ def page_clusters():
     expander.write("Feel free to reach out to the Stringer Team!")
 
     st.write("")
+
+    # FAQ
+    st.subheader("FAQ")
+    expander = st.beta_expander("What is the source for this data?")
+    expander.markdown("Data is acquired using the Twitter Search API")
+    expander = st.beta_expander("What do the different columns mean?")
+    expander.write("For detailed explanations check out the Twitter Search API documentation.")
+    expander = st.beta_expander("Who do I contact for help with this information?")
+    expander.write("Feel free to reach out to the Stringer Team!")
+
+
     st.write("")
     st.write("")
 
