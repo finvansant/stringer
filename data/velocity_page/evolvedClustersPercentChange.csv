@@ -1,0 +1,4 @@
+stats,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,Old Cluster #,Old Cluster Words,New Cluster Words
+New Cluster #1,-49.9,-52.1,-81.3,568.0,-42.9,-49.3,2.0,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']","['pfizer', 'shot', 'dose', 'second', 'dos', 'moderna', 'got', 'sore', 'begin', 'arm']"
+New Cluster #2,36.6,26.3,4.1,36.7,85.7,36.7,1.0,"['new', 'case', 'apr', 'death', 'access', 'reported', 'coronavirus', 'report', 'york', 'walgreens']","['new', 'case', 'active', 'apr', 'store', 'death', 'walgreen', 'access', 'record', 'york']"
+New Cluster #5,-20.2,-19.6,-40.9,-37.4,-14.3,-19.7,2.0,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']","['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"

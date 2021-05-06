@@ -7,7 +7,7 @@ def page_clusters():
 
     st.text('page_clusters')
 
-    DATA_URL = ('data/cluster_tweets.csv')
+    DATA_URL = ('data/clusters_page/cluster_tweets.csv')
 
     @st.cache
     def load_data(nrows):
@@ -28,7 +28,7 @@ def page_clusters():
 
 
     # Load clusters CSV
-    df_clusters = pd.read_csv('data/cluster_keywords.csv', index_col=0)
+    df_clusters = pd.read_csv('data/clusters_page/cluster_keywords.csv', index_col=0)
     df_clusters.columns=["Cluster "+str(i) for i in range(1, df_clusters.shape[1] + 1)]
 
     st.subheader('Explore Clusters')
@@ -99,7 +99,7 @@ def page_clusters():
     # ----------------------
 
     # Load timeseries data
-    df_time = pd.read_csv('data/time_series.csv')
+    df_time = pd.read_csv('data/clusters_page/time_series.csv')
 
     from datetime import date
     from datetime import datetime

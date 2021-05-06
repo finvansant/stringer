@@ -1,0 +1,5 @@
+stats,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,New Cluster Words
+New Cluster #0,3894.0,3386.0,4109.0,57214267.0,126.0,556.0,"['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
+New Cluster #3,359.0,327.0,305.0,1159155.0,7.0,51.0,"['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
+New Cluster #4,845.0,804.0,1020.0,2911852.0,9.0,121.0,"['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
+New Cluster #6,1455.0,1360.0,2070.0,3136939.0,21.0,208.0,"['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
