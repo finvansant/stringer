@@ -27,27 +27,28 @@ def page_velocity():
     to_drop = ['Keyword 1','Keyword 1', 'Keyword 2', 'Keyword 3', 'Keyword 4', 'Keyword 5', 'Keyword 6', 'Keyword 7', 'Keyword 8', 'Keyword 9', 'Keyword 10']
     df_evolvedClustersGraph.drop(to_drop, inplace=True, axis=1)
 
-    # Dropdown Filter
-    views = ['number of tweets', 'number of users', 'favorite count', 'number of followers', 'number of verified followers', 'average number of tweets']
-    views_dropdown = alt.binding_select(options=views, name='view')
-    views_select = alt.selection_single(fields=['views'], bind=views_dropdown, init={'views': 'number of tweets'})
-
     # Evolved Clusters Chart
-    alt_velocity_chart = alt.Chart(df_evolvedClustersGraph).mark_line().encode(
-        x='date:Q',
-        y='instance:Q',
-        strokeDash='Clusters',
-    ).add_selection(
-        views_select
-    ).transform_filter(
-        views_select
-    )
+    alt_tweet_chart = alt.Chart(df_evolvedClustersGraph).mark_line().encode(
+        x='date',
+        y='number of tweets',
+        strokeDash='Clusters'
+        )
+
+    alt_user_chart = alt_tweet_chart.encode(y='number of users')
+
+    alt_favorite_chart = alt_tweet_chart.encode(y='favorite count')
+
+    alt_follower_chart = alt_tweet_chart.encode(y='number of followers')
+
 
     st.write("")
     st.write("")
-    st.altair_chart(alt_velocity_chart, use_container_width=True)
+    st.altair_chart(alt_tweet_chart, use_container_width=True)
+    st.altair_chart(alt_user_chart, use_container_width=True)
+    st.altair_chart(alt_favorite_chart, use_container_width=True)
+    st.altair_chart(alt_follower_chart, use_container_width=True)
     st.write("")
-    st.write('To further explore the cluster evolution, look at the metrics changes through the filtered views dropdown.')
+    #st.write('To further explore the cluster evolution, look at the metrics changes through the filtered views dropdown.')
 
     st.write("")
     st.write("Of course, some clusters are completely new. This table shows these clusters, with the same summary statistics as you can see on the original 'cluster' page")
