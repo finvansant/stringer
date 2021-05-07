@@ -18,7 +18,6 @@ def page_velocity():
     st.write("")
     st.write("Evolved clusters:")
     df_evolvedClustersGraph = pd.read_csv('data/velocity_page/evolvedClustersGraph.csv', index_col=0)
-    st.write("")
     st.write("The second table consists of clusters that have evolved from one week to the next (April 22nd 2021 to April 29nd 2021), these clusters have evolved across both metrics and within the keywords themselves.")
     st.write("")
     st.write(df_evolvedClustersGraph)
