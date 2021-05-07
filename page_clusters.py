@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import plotly.express as px
+from datetime import date
+from datetime import datetime
 
 def page_clusters():
 
@@ -26,12 +28,13 @@ def page_clusters():
     # Notify the reader that the data was successfully loaded.
     # data_load_state.text("Done! (using st.cache)")
 
+    #d = st.sidebar.date_input("Date",date(2021, 4, 29))
 
     # Load clusters CSV
     df_clusters = pd.read_csv('data/clusters_page/cluster_keywords.csv', index_col=0)
     df_clusters.columns=["Cluster "+str(i) for i in range(1, df_clusters.shape[1] + 1)]
 
-    st.subheader('Explore Clusters')
+    st.subheader('Explore Relevant Topics Through Clusters')
     st.write("")
     st.write("The table below shows the keywords that best describe each cluster so are a good way to understand the overall topic, and compare the different types of commentary on social media.")
     st.write("")
@@ -42,7 +45,6 @@ def page_clusters():
     st.write("")
     st.write("Summary statistics for each cluster:")
     st.write("")
-
 
     # Show statistics about the different clusters (total audience, total number of posts)
 
@@ -145,8 +147,7 @@ def page_clusters():
     # Load timeseries data
     df_time = pd.read_csv('data/clusters_page/time_series.csv')
 
-    from datetime import date
-    from datetime import datetime
+
     time_cluster = df_time[df_time['cluster'] == int(cluster_choice[-1])-1][['Date','Velocity']]
 
     min_time = datetime.strptime(min(time_cluster['Date']), '%Y-%m-%d')

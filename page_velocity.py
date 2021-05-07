@@ -4,7 +4,7 @@ import altair as alt
 
 def page_velocity():
 
-    st.subheader('Explore Velocity')
+    st.subheader('Explore Velocity Through Cluster Comparison')
     st.write("")
     st.write("To understand how a topic is developing over time, you can explore the changes between clusters on a week-by-week basis. The first table simply shows the clusters that failed to evolve week to week and were instead depreciated.")
     st.write("")
