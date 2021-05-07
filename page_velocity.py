@@ -43,10 +43,15 @@ def page_velocity():
 
     st.write("")
     st.write("")
-    st.altair_chart(alt_tweet_chart, use_container_width=True)
-    st.altair_chart(alt_user_chart, use_container_width=True)
-    st.altair_chart(alt_favorite_chart, use_container_width=True)
-    st.altair_chart(alt_follower_chart, use_container_width=True)
+
+    #df_evolvedClustersGraph.drop(['Clusters','date'], inplace=True, axis=1)
+    cluster_choice = st.selectbox(
+    'Which metric would you like to explore further?',
+    df_evolvedClustersGraph.columns,
+    index=2)
+
+    # Filter based on cluster choice input
+    st.altair_chart(alt_tweet_chart.encode(y=cluster_choice), use_container_width=True)
     st.write("")
     #st.write('To further explore the cluster evolution, look at the metrics changes through the filtered views dropdown.')
 
