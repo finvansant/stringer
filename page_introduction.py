@@ -3,7 +3,7 @@ import streamlit as st
 def page_introduction():
 
     st.image('./images/stringer_logo.png')
-    st.title('Surfacing Viral Misinformation')
+    st.title('Surfacing Trending Topics From Social Media')
 
     st.write('___')
 

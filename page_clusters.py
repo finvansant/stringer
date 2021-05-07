@@ -38,7 +38,7 @@ def page_clusters():
     st.write("")
     st.write("The table below shows the keywords that best describe each cluster so are a good way to understand the overall topic, and compare the different types of commentary on social media.")
     st.write("")
-    st.write("Top keywords for each cluster:")
+    st.write("Top keywords for each cluster on April 29th 2021:")
     st.write(df_clusters)
     st.write("")
     st.write("To explore further, the table below shows information about the audience that was reached by tweets in each cluster. Click on a column name to sort by that column.")
@@ -95,7 +95,7 @@ def page_clusters():
     st.write("")
 
 
-    st.subheader('Explore Tweets')
+    st.subheader('Dive Deeper Into One Cluster')
     st.write("")
     st.write("Go deeper into the cluster by looking at individual tweets, and see how the clusters grew over time using the timeseries chart.")
     st.write("")

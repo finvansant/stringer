@@ -1,11 +1,11 @@
 ![Stringer](./images/stringer_logo.png)
 
-## Surfacing Viral Misinformation
+## Surface Trending Topics From Social Media
 
 * **identifying clusters based on velocity x novelty x relevance**  
 
 * **highlighting drivers of misinformation**      
-   
+
 * **understanding key metrics behind social media spread**
 
 
