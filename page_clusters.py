@@ -5,7 +5,7 @@ import altair as alt
 
 def page_clusters():
 
-    st.text('page_clusters')
+    # st.text('page_clusters')
 
     DATA_URL = ('data/clusters_page/cluster_tweets.csv')
 
@@ -18,13 +18,12 @@ def page_clusters():
 
 
     # Create a text element and let the reader know the data is loading.
-    data_load_state = st.text('Loading data...')
+    # data_load_state = st.text('Loading data...')
 
     # Load 10,000 rows of data into the dataframe.
-    data = load_data(1000)
-
+    data = load_data(5000)
     # Notify the reader that the data was successfully loaded.
-    data_load_state.text("Done! (using st.cache)")
+    # data_load_state.text("Done! (using st.cache)")
 
 
     # Load clusters CSV
@@ -58,14 +57,40 @@ def page_clusters():
     dfsummary['average_audience'] = round((dfsummary['total_followers'] / dfsummary['total_number_of_posts']))
     dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_followers":"Total Followers", "total_number_of_posts":"Total Posts", "average_audience":"Average Audience"})
 
+    dfsummary = dfsummary[['Cluster', 'Total Posts', 'Total Followers', 'Average Audience']]
+    dfsummary['Cluster'].replace({1:'Cluster 1',2:'Cluster 2',3:'Cluster 3',4:'Cluster 4',5:'Cluster 5',6:'Cluster 6',7:'Cluster 7'},inplace=True)
+    dfsummary.set_index('Cluster', inplace=True)
     st.write(dfsummary)
 
     st.write("")
     st.write("")
 
     st.write('Cluster map visualization:')
+
+    cluster_3d = data[['pc1','pc2','pc3','label','tweet_text','retweet_count']]
+    cluster_3d.sort_values(by=['label'],inplace=True)
+    cluster_3d['tweet_text'] = cluster_3d['tweet_text'].str.wrap(30).apply(lambda x: x.replace('\n', '<br>'))
+    cluster_3d['label'] = cluster_3d['label'] .astype(object)
+    import plotly.express as px
+
+    fig = px.scatter_3d(
+        cluster_3d, x='pc1', y='pc2', z='pc3', color=cluster_3d['label'],
+        hover_data = {'label':True, 'tweet_text':True,'pc1':False, 'pc2':False, 'pc3':False,'retweet_count':True},
+        template = 'plotly_white'
+    )
+    cluster_3d['retweet_count'] = cluster_3d['retweet_count'] + 1
+    fig.update_traces(marker=dict(size=cluster_3d['retweet_count'],sizemode='area',sizeref=8))
+    fig.update_traces(hoverlabel_font_size=12)
+    fig.update_layout(width=250,
+        scene=dict(
+        xaxis=dict(showticklabels=False,visible=False),
+        yaxis=dict(showticklabels=False,visible=False),
+        zaxis=dict(showticklabels=False,visible=False),)
+    )
+
+    st.plotly_chart(fig, use_container_width=True,height=250)
     st.write("")
-    st.image('./images/cluster_map_visualization.png')
+
 
     st.subheader('Explore Tweets')
 
@@ -81,14 +106,33 @@ def page_clusters():
     st.write('You selected:', cluster_choice)
 
     # Reorganize tweet data
-    data2 = data[["clusters", "tweet_text", "user", "user_follower_count", "hashtags"]]
-    data2 = data2.rename(columns={"clusters":"Cluster", "tweet_text":"Tweet Text", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags"})
+    data2 = data[["clusters", "tweet_text", "user", "user_follower_count",'retweet_count', "created_on","hashtags"]]
+    data2['created_on'] = data2['created_on'].astype(str).str[:10]
+    data2 = data2.rename(columns={"clusters":"Cluster", "tweet_text":"Tweet Text", "user":"User", "user_follower_count":"Followers", "hashtags":"Hashtags","retweet_count":"Retweet Counts"})
 
     st.write("")
     st.write("Full tweets within this cluster:")
 
     # Filter based on cluster choice input
-    st.write(data2[data2["Cluster"] == int(cluster_choice[-1])])
+    st.write(data2[data2["Cluster"] == int(cluster_choice[-1])].drop(['Cluster'],axis=1))
+    st.write("")
+    st.write("")
+
+    col1, col2 = st.beta_columns(2)
+    cluster_followers = data2[data2["Cluster"] == int(cluster_choice[-1])].drop_duplicates(subset='User')
+    fig = px.scatter(cluster_followers, x='Cluster',y='Followers',size='Followers',hover_data=['User'],template = 'plotly_white')
+    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=5000))
+    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
+    col1.plotly_chart(fig, use_container_width=True)
+
+
+    cluster_retweets = data2[data2["Cluster"] == int(cluster_choice[-1])]
+    cluster_retweets['Tweet Text'] = cluster_retweets['Tweet Text'].str.wrap(20).apply(lambda x: x.replace('\n', '<br>'))
+    fig = px.scatter(cluster_retweets, x='Cluster',y='Retweet Counts',size='Retweet Counts',hover_data=['Tweet Text'],template = 'plotly_white')
+    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=50))
+    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
+    fig.update_traces(hoverlabel_font_size=10)
+    col2.plotly_chart(fig, use_container_width=True)
 
     st.write("")
     st.write("")
