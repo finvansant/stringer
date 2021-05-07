@@ -120,21 +120,21 @@ def page_clusters():
     st.write("")
     st.write("")
 
-    col1, col2 = st.beta_columns(2)
-    cluster_followers = data2[data2["Cluster"] == int(cluster_choice[-1])].drop_duplicates(subset='User')
-    fig = px.scatter(cluster_followers, x='Cluster',y='Followers',size='Followers',hover_data=['User'],template = 'plotly_white')
-    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=5000))
-    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
-    col1.plotly_chart(fig, use_container_width=True)
+#    col1, col2 = st.beta_columns(2)
+#    cluster_followers = data2[data2["Cluster"] == int(cluster_choice[-1])].drop_duplicates(subset='User')
+#    fig = px.scatter(cluster_followers, x='Cluster',y='Followers',size='Followers',hover_data=['User'],template = 'plotly_white')
+#    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=5000))
+#    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
+#    col1.plotly_chart(fig, use_container_width=True)
 
 
-    cluster_retweets = data2[data2["Cluster"] == int(cluster_choice[-1])]
-    cluster_retweets['Tweet Text'] = cluster_retweets['Tweet Text'].str.wrap(20).apply(lambda x: x.replace('\n', '<br>'))
-    fig = px.scatter(cluster_retweets, x='Cluster',y='Retweet Counts',size='Retweet Counts',hover_data=['Tweet Text'],template = 'plotly_white')
-    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=50))
-    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
-    fig.update_traces(hoverlabel_font_size=10)
-    col2.plotly_chart(fig, use_container_width=True)
+#    cluster_retweets = data2[data2["Cluster"] == int(cluster_choice[-1])]
+#    cluster_retweets['Tweet Text'] = cluster_retweets['Tweet Text'].str.wrap(20).apply(lambda x: x.replace('\n', '<br>'))
+#    fig = px.scatter(cluster_retweets, x='Cluster',y='Retweet Counts',size='Retweet Counts',hover_data=['Tweet Text'],template = 'plotly_white')
+#    fig.update_traces(marker_color='orange',marker=dict(sizemode='area',sizeref=50))
+#    fig.update_xaxes(visible=False, showticklabels=False,range=[int(cluster_choice[-1])-1,int(cluster_choice[-1])+1])
+#    fig.update_traces(hoverlabel_font_size=10)
+#    col2.plotly_chart(fig, use_container_width=True)
 
     st.write("")
     st.write("")
