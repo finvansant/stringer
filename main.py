@@ -21,9 +21,9 @@ d = st.sidebar.date_input("Date",date(2021, 4, 29))
 
 sidebar_pages = {
     "Introduction": page_introduction,
+    "Novelty": page_novelty,
     "Clusters": page_clusters,
     "Velocity": page_velocity,
-    "Novelty": page_novelty,
     "Team": page_team
 }
 
