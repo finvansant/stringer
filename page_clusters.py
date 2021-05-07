@@ -56,7 +56,7 @@ def page_clusters():
 
     dfsummary = pd.merge(dfsumfollowers, dfcountposts, on="clusters")
     dfsummary['average_audience'] = round((dfsummary['total_followers'] / dfsummary['total_number_of_posts']))
-    dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_followers":"Total Followers", "total_number_of_posts":"Total Posts", "average_audience":"Average Audience"})
+    dfsummary = dfsummary.rename(columns={"clusters":"Cluster", "total_number_of_posts":"Total Posts", "total_followers":"Total Followers", "average_audience":"Average Audience"})
 
     st.write(dfsummary)
 
@@ -68,7 +68,6 @@ def page_clusters():
     st.image('./images/cluster_map_visualization.png')
 
     st.subheader('Explore Tweets')
-
     st.write("")
     st.write("Go deeper into the cluster by looking at individual tweets, and see how the clusters grew over time using the timeseries chart.")
     st.write("")
