@@ -13,12 +13,6 @@ st.sidebar.image('./images/cornell_tech_logo.png')
 
 st.sidebar.title("Navigation")
 
-add_selectbox = st.sidebar.text_input(
-    "Search Tearm",
-    ("Covid")
-)
-d = st.sidebar.date_input("Date",date(2021, 4, 29))
-
 sidebar_pages = {
     "Introduction": page_introduction,
     "Novelty": page_novelty,
@@ -28,5 +22,7 @@ sidebar_pages = {
 }
 
 page = st.sidebar.radio("Select:", tuple(sidebar_pages.keys()))
+
+d = st.sidebar.date_input("Date",date(2021, 4, 29))
 
 sidebar_pages[page]()

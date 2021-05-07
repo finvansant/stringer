@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
+import plotly.express as px
 
 def page_clusters():
 
@@ -71,7 +72,7 @@ def page_clusters():
     cluster_3d.sort_values(by=['label'],inplace=True)
     cluster_3d['tweet_text'] = cluster_3d['tweet_text'].str.wrap(30).apply(lambda x: x.replace('\n', '<br>'))
     cluster_3d['label'] = cluster_3d['label'] .astype(object)
-    import plotly.express as px
+
 
     fig = px.scatter_3d(
         cluster_3d, x='pc1', y='pc2', z='pc3', color=cluster_3d['label'],

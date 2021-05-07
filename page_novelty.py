@@ -7,6 +7,7 @@ def page_novelty():
     st.write("")
     st.write("")
     st.write("To introduce novelty and ensure customer-provided search terms do not narrow the scope of results, we compute the Jaccard coefficient between each customer input term and existing terms in our database. We then expand the search query to include related terms that have a Jaccard coefficient greater than 0.005 with any of the customer-provided terms.")
+    st.image('images/search_term.png')
     st.write("")
 
     st.text('Jaccard analysis for overall search terms:')
