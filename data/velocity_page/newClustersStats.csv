@@ -1,5 +1,5 @@
-stats,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,New Cluster Words
-New Cluster #0,3894.0,3386.0,4109.0,57214267.0,126.0,556.0,"['vaccine', 'coronavirus', 'vaccination', 'health', 'appointment', 'vaccinated', 'jab', 'myturn', 'selecting', 'eligible']"
-New Cluster #3,359.0,327.0,305.0,1159155.0,7.0,51.0,"['johnson', 'boris', 'alize', 'tory', 'dwayne', 'prime', 'flat', 'think', 'john', 'game']"
-New Cluster #4,845.0,804.0,1020.0,2911852.0,9.0,121.0,"['need', 'like', 'help', 'look', 'donate', 'oxygen', 'feel', 'people', 'country', 'india']"
-New Cluster #6,1455.0,1360.0,2070.0,3136939.0,21.0,208.0,"['covid', 'india', 'year', 'died', 'relief', 'hospital', 'death', 'patient', 'modi', 'going']"
+-,cluster,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,Keyword 1,Keyword 2,Keyword 3,Keyword 4,Keyword 5,Keyword 6,Keyword 7,Keyword 8,Keyword 9,Keyword 10
+-,1,3894,3386,4109,57214267,126,556,vaccine,coronavirus,vaccination,health,appointment,vaccinated,jab,myturn,selecting,eligible
+-,2,359,327,305,1159155,7,51,johnson,boris,alize,tory,dwayne,prime,flat,thing,john ,game
+-,3,845,804,1020,2911852,9,121,need,like,help,look,donate,oxygen,feel,people,country,india
+-,4,1455,1360,2070,3136939,21,208,covid,india,year,died,relief,hospital,death,patient,modi,going

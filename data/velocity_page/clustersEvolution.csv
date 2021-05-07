@@ -1,16 +1,6 @@
-Cluster,Status,Top Words
-Old Cluster #0,Depreciated,"['vaccination', 'crime', 'hate', 'coronavirus', 'senate', 'jab', 'government', 'read', 'health', 'american']"
-Old Cluster #3,Depreciated,"['johnson', 'boris', 'ron', 'dyson', 'tory', 'text', 'tax', 'super', 'climate', 'prime']"
-Old Cluster #4,Depreciated,"['india', 'flight', 'pakistan', 'case', 'canada', 'ban', 'record', 'variant', 'trudeau', 'day']"
-Old Cluster #5,Depreciated,"['vaccine', 'appointment', 'available', 'dos', 'getting', 'clinic', 'rollout', 'vaccinated', 'people', 'passport']"
-Old Cluster #6,Depreciated,"['covid', 'hospital', 'patient', 'oxygen', 'bed', 'like', 'positive', 'delhi', 'test', 'time']"
-New Cluster #0,New,"['vaccine', 'coronavirus', 'vaccination', 'health', 'appointment', 'vaccinated', 'jab', 'myturn', 'selecting', 'eligible']"
-New Cluster #3,New,"['johnson', 'boris', 'alize', 'tory', 'dwayne', 'prime', 'flat', 'think', 'john', 'game']"
-New Cluster #4,New,"['need', 'like', 'help', 'look', 'donate', 'oxygen', 'feel', 'people', 'country', 'india']"
-New Cluster #6,New,"['covid', 'india', 'year', 'died', 'relief', 'hospital', 'death', 'patient', 'modi', 'going']"
-New Cluster #1,Evolved,"['pfizer', 'shot', 'dose', 'second', 'dos', 'moderna', 'got', 'sore', 'begin', 'arm']"
-Old Cluster #2,Evolved,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']"
-New Cluster #2,Evolved,"['new', 'case', 'active', 'apr', 'store', 'death', 'walgreen', 'access', 'record', 'york']"
-Old Cluster #1,Evolved,"['new', 'case', 'apr', 'death', 'access', 'reported', 'coronavirus', 'report', 'york', 'walgreens']"
-New Cluster #5,Evolved,"['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
-Old Cluster #2,Evolved,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']"
+-,Clusters,Status,Keyword 1,Keyword 2,Keyword 3,Keyword 4,Keyword 5,Keyword 6,Keyword 7,Keyword 8,Keyword 9,Keyword 10
+-,1,Depreciated,vaccination,crime,hate,coronavirus,senate,jab,government,read,health,american
+-,2,Depreciated,johnson,boris,ron,dyson,tory,text,tax,super,climate,prime
+-,3,Depreciated,india,flight,pakistan,case,canada,ban,record,variant,trudeau,day
+-,4,Depreciated,vaccine,appointment,available,dos,getting,clinic,rollout,vaccinated,people,passport
+-,5,Depreciated,covid,hospital,patient,oxygen,bed,like,positive,delhi,test,time

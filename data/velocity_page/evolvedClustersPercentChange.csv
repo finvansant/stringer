@@ -1,4 +1,6 @@
-stats,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,Old Cluster #,Old Cluster Words,New Cluster Words
-New Cluster #1,-49.9,-52.1,-81.3,568.0,-42.9,-49.3,2.0,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']","['pfizer', 'shot', 'dose', 'second', 'dos', 'moderna', 'got', 'sore', 'begin', 'arm']"
-New Cluster #2,36.6,26.3,4.1,36.7,85.7,36.7,1.0,"['new', 'case', 'apr', 'death', 'access', 'reported', 'coronavirus', 'report', 'york', 'walgreens']","['new', 'case', 'active', 'apr', 'store', 'death', 'walgreen', 'access', 'record', 'york']"
-New Cluster #5,-20.2,-19.6,-40.9,-37.4,-14.3,-19.7,2.0,"['got', 'second', 'pfizer', 'moderna', 'shot', 'dose', 'getting', 'arm', 'vaccine', 'feeling']","['got', 'shot', 'second', 'moderna', 'dose', 'vaccine', 'hour', 'arm', 'feel', 'week']"
+-,Cluster,num_tweets,num_user,fav_count,num_followers,num_verified,avg_tweets,Source Cluster,Keyword 1,Keyword 2,Keyword 3,Keyword 4,Keyword 5,Keyword 6,Keyword 7,Keyword 8,Keyword 9,Keyword 10
+-,1,418,384,462,8891627,14,60,-,new,case,apr,death,access,reported,coronavirus,report,york,walgreens
+-,2,499,491,2257,1182221,7,71,-,got,second,pfizer,moderna,shot,dose,getting,arm,vaccine,feeling
+-,3,250,235,422,7897001,4,36,2,pfizer,shot,dose,second,dos,moderna,got,sore,begin,arm
+-,4,571,485,481,12152933,26,82,1,new,case,active,apr,store,death,walgreen,access,record,york
+-,5,398,395,1333,739661,6,57,2,got,shot,second,moderna,dose,vaccine,hour,arm,feel,week
