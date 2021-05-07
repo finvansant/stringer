@@ -3,8 +3,6 @@ import pandas as pd
 
 def page_novelty():
 
-    st.text('page_novelty')
-
     st.subheader('Explore Novelty')
     st.write("")
     st.write("")
