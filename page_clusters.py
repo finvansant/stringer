@@ -82,7 +82,7 @@ def page_clusters():
         template = 'plotly_white'
     )
     cluster_3d['retweet_count'] = cluster_3d['retweet_count'] + 1
-    fig.update_traces(marker=dict(size=cluster_3d['retweet_count'],sizemode='area',sizeref=8))
+    fig.update_traces(marker=dict(size=cluster_3d['retweet_count'],sizemode='area',sizeref=5))
     fig.update_traces(hoverlabel_font_size=12)
     fig.update_layout(width=250,
         scene=dict(
@@ -156,7 +156,7 @@ def page_clusters():
     timerange = st.slider("Select Time Range:",min_value=min_time, max_value=max_time,value=(min_time, max_time),format="YY-MM-DD")
     st.write("")
     c = alt.Chart(time_cluster[(time_cluster['Date']>=timerange[0].strftime('%Y-%m-%d')) & (time_cluster['Date']<=timerange[1].strftime('%Y-%m-%d'))])\
-    .mark_area(color='lightblue',point=True).encode(x='Date',y='Velocity')
+    .mark_line(color='lightblue',point=True).encode(x='Date',y='Velocity')
     st.altair_chart(c,use_container_width=True)
     st.write("")
     st.write("")
